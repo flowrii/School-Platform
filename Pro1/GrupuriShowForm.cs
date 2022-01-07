@@ -29,6 +29,8 @@ namespace Pro1
 
         private void GrupuriShowForm_Load(object sender, EventArgs e)
         {
+            con.Close();
+            con.Open();
             string sqlQueryGrupuri = "select grup.grup_id as ID, grup.curs_id as CURS, grup.nume as NumeGrup from grup join student_grup using (grup_id) join student using (student_id);";
             MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryGrupuri, con);
             DataTable dt = new DataTable();
@@ -55,6 +57,13 @@ namespace Pro1
             }
             else
                 MessageBox.Show("Selectati un singur Grup!");
+        }
+
+        private void grupNouBtn_Click(object sender, EventArgs e)
+        {
+            GrupNouForm grupNou = new GrupNouForm(userID, con, this);
+            this.Hide();
+            grupNou.Show();
         }
     }
 }

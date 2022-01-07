@@ -86,6 +86,7 @@ namespace Pro1
             this.grupNouBtn.TabIndex = 4;
             this.grupNouBtn.Text = "Alatura-te unui nou grup";
             this.grupNouBtn.UseVisualStyleBackColor = true;
+            this.grupNouBtn.Click += new System.EventHandler(this.grupNouBtn_Click);
             // 
             // GrupuriShowForm
             // 

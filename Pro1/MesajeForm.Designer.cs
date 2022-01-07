@@ -1,7 +1,7 @@
 ﻿
 namespace Pro1
 {
-    partial class MembriiShowForm
+    partial class MesajeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,43 +29,55 @@ namespace Pro1
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inapoiBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // inapoiBtn
+            // 
+            this.inapoiBtn.Location = new System.Drawing.Point(11, 9);
+            this.inapoiBtn.Name = "inapoiBtn";
+            this.inapoiBtn.Size = new System.Drawing.Size(83, 46);
+            this.inapoiBtn.TabIndex = 3;
+            this.inapoiBtn.Text = "Inapoi";
+            this.inapoiBtn.UseVisualStyleBackColor = true;
+            this.inapoiBtn.Click += new System.EventHandler(this.inapoiBtn_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(357, 336);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(673, 362);
+            this.dataGridView1.TabIndex = 2;
             // 
-            // inapoiBtn
+            // button1
             // 
-            this.inapoiBtn.Location = new System.Drawing.Point(12, 12);
-            this.inapoiBtn.Name = "inapoiBtn";
-            this.inapoiBtn.Size = new System.Drawing.Size(83, 46);
-            this.inapoiBtn.TabIndex = 1;
-            this.inapoiBtn.Text = "Inapoi";
-            this.inapoiBtn.UseVisualStyleBackColor = true;
-            this.inapoiBtn.Click += new System.EventHandler(this.inapoiBtn_Click);
+            this.button1.Location = new System.Drawing.Point(651, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Mesaj nou";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // MembriiShowForm
+            // MesajeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 488);
+            this.ClientSize = new System.Drawing.Size(746, 493);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.inapoiBtn);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "MembriiShowForm";
-            this.Text = "MembriiShowForm";
-            this.Load += new System.EventHandler(this.MembriiShowForm_Load);
+            this.Name = "MesajeForm";
+            this.Text = "MesajeForm";
+            this.Load += new System.EventHandler(this.MesajeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -73,7 +85,8 @@ namespace Pro1
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button inapoiBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }

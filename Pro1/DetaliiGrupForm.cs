@@ -37,16 +37,16 @@ namespace Pro1
 
         private void membriiBtn_Click(object sender, EventArgs e)
         {
-            MembriiShowForm msf = new MembriiShowForm(grupID, con, this, 0);
+            MembriiShowForm msf = new MembriiShowForm(grupID, con, this);
             this.Hide();
             msf.Show();
         }
 
-        private void profBtn_Click(object sender, EventArgs e)
+        private void mesajeBtn_Click(object sender, EventArgs e)
         {
-            MembriiShowForm msf = new MembriiShowForm(grupID, con, this, 1);
+            MesajeForm mesaje = new MesajeForm(userID, grupID, con, this);
             this.Hide();
-            msf.Show();
+            mesaje.Show();
         }
     }
 }
