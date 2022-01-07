@@ -52,7 +52,7 @@ namespace Pro1
             // 
             // adaugaBtn
             // 
-            this.adaugaBtn.Location = new System.Drawing.Point(811, 11);
+            this.adaugaBtn.Location = new System.Drawing.Point(947, 11);
             this.adaugaBtn.Name = "adaugaBtn";
             this.adaugaBtn.Size = new System.Drawing.Size(110, 29);
             this.adaugaBtn.TabIndex = 1;
@@ -72,7 +72,7 @@ namespace Pro1
             // 
             // stergeBtn
             // 
-            this.stergeBtn.Location = new System.Drawing.Point(947, 11);
+            this.stergeBtn.Location = new System.Drawing.Point(831, 12);
             this.stergeBtn.Name = "stergeBtn";
             this.stergeBtn.Size = new System.Drawing.Size(110, 29);
             this.stergeBtn.TabIndex = 3;
@@ -82,7 +82,8 @@ namespace Pro1
             // 
             // asignCursBtn
             // 
-            this.asignCursBtn.Location = new System.Drawing.Point(674, 11);
+            this.asignCursBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.asignCursBtn.Location = new System.Drawing.Point(715, 12);
             this.asignCursBtn.Name = "asignCursBtn";
             this.asignCursBtn.Size = new System.Drawing.Size(110, 29);
             this.asignCursBtn.TabIndex = 4;

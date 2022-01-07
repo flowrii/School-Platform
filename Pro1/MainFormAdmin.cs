@@ -84,5 +84,12 @@ namespace Pro1
             this.Hide();
             admini.Show();
         }
+
+        private void grupuriBtn_Click(object sender, EventArgs e)
+        {
+            AdminShowForm grupuri = new AdminShowForm(this, con, userID, 5);
+            this.Hide();
+            grupuri.Show();
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace Pro1
             this.stdentiBtn = new System.Windows.Forms.Button();
             this.cursuriBtn = new System.Windows.Forms.Button();
             this.adminiBtn = new System.Windows.Forms.Button();
+            this.grupuriBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -72,7 +73,7 @@ namespace Pro1
             // 
             // logOutBtn
             // 
-            this.logOutBtn.Location = new System.Drawing.Point(3, 509);
+            this.logOutBtn.Location = new System.Drawing.Point(3, 609);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(106, 43);
             this.logOutBtn.TabIndex = 8;
@@ -82,7 +83,7 @@ namespace Pro1
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(298, 509);
+            this.exitBtn.Location = new System.Drawing.Point(298, 609);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(106, 43);
             this.exitBtn.TabIndex = 7;
@@ -126,7 +127,7 @@ namespace Pro1
             // adminiBtn
             // 
             this.adminiBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.adminiBtn.Location = new System.Drawing.Point(76, 404);
+            this.adminiBtn.Location = new System.Drawing.Point(76, 487);
             this.adminiBtn.Name = "adminiBtn";
             this.adminiBtn.Size = new System.Drawing.Size(257, 77);
             this.adminiBtn.TabIndex = 12;
@@ -134,11 +135,23 @@ namespace Pro1
             this.adminiBtn.UseVisualStyleBackColor = true;
             this.adminiBtn.Click += new System.EventHandler(this.adminiBtn_Click);
             // 
+            // grupuriBtn
+            // 
+            this.grupuriBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grupuriBtn.Location = new System.Drawing.Point(76, 404);
+            this.grupuriBtn.Name = "grupuriBtn";
+            this.grupuriBtn.Size = new System.Drawing.Size(257, 77);
+            this.grupuriBtn.TabIndex = 13;
+            this.grupuriBtn.Text = "Grupuri de studiu";
+            this.grupuriBtn.UseVisualStyleBackColor = true;
+            this.grupuriBtn.Click += new System.EventHandler(this.grupuriBtn_Click);
+            // 
             // MainFormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 564);
+            this.ClientSize = new System.Drawing.Size(408, 663);
+            this.Controls.Add(this.grupuriBtn);
             this.Controls.Add(this.adminiBtn);
             this.Controls.Add(this.cursuriBtn);
             this.Controls.Add(this.stdentiBtn);
@@ -167,5 +180,6 @@ namespace Pro1
         private System.Windows.Forms.Button stdentiBtn;
         private System.Windows.Forms.Button cursuriBtn;
         private System.Windows.Forms.Button adminiBtn;
+        private System.Windows.Forms.Button grupuriBtn;
     }
 }

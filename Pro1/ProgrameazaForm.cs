@@ -47,7 +47,7 @@ namespace Pro1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string curs, ora, zi, pondere, nrMax="0", tip;
+            string curs, ora, zi, pondere, nrMax = "0", tip;
             int ziP;
             DateTime dataIncepere, dataFinalizare;
             try
@@ -84,30 +84,40 @@ namespace Pro1
                 nrMax = nrStudTextBox.Text.ToString();
                 dataIncepere = incepereDateTimePicker1.Value;
                 dataFinalizare = finalizareDateTimePicker1.Value;
-                try
+                int pondere_locala = 0;
+                MySqlCommand cmd1 = new MySqlCommand("select pondere_locala(" + userID + ",'" + curs + "');", con);
+                pondere_locala = (int)cmd1.ExecuteScalar();
+                if (pondere_locala + Int32.Parse(pondere) <= 100)
                 {
-                    int nrStud = Int32.Parse(nrMax);
+                    try
+                    {
+                        int nrStud = Int32.Parse(nrMax);
 
-                    string sqlProcExe = "call prof_asign_act(" + userID + ", '" + curs + "', " + ora + ", " + ziP + ", " + pondere + ", " 
-                        + nrStud + ", " + tip + ", '" + dataIncepere.ToString("yyyy-MM-dd") + "', '" + dataFinalizare.ToString("yyyy-MM-dd") + "');";
+                        string sqlProcExe = "call prof_asign_act(" + userID + ", '" + curs + "', " + ora + ", " + ziP + ", " + pondere + ", "
+                            + nrStud + ", " + tip + ", '" + dataIncepere.ToString("yyyy-MM-dd") + "', '" + dataFinalizare.ToString("yyyy-MM-dd") + "');";
 
-                    //MessageBox.Show(sqlProcExe);
+                        //MessageBox.Show(sqlProcExe);
 
-                    MySqlCommand cmd = new MySqlCommand(sqlProcExe, con);
-                    cmd.ExecuteNonQuery();
+                        MySqlCommand cmd = new MySqlCommand(sqlProcExe, con);
+                        cmd.ExecuteNonQuery();
 
 
-                    MessageBox.Show("Activitatea a fost adaugata cu succes!");
-                    con.Close();
-                    this.Close();
-                    profForm.Show();
+                        MessageBox.Show("Activitatea a fost adaugata cu succes!");
+                        con.Close();
+                        this.Close();
+                        profForm.Show();
+                    }
+                    catch (FormatException exception)
+                    {
+                        MessageBox.Show("Introduceti un numar intreg valid de studenti");
+                    }
                 }
-                catch (FormatException exception)
+                else
                 {
-                    MessageBox.Show("Introduceti un numar intreg valid de studenti");
+                    MessageBox.Show("Ati depasit ponderea maxima admisa (100) cu " + (pondere_locala + Int32.Parse(pondere) - 100));
                 }
             }
-            catch (NullReferenceException exception)
+            catch (Exception exception)
             {
                 MessageBox.Show("Completati toate campurile inainte de a finaliza");
             }

@@ -14,7 +14,7 @@ namespace Pro1
         public MainFormAdmin ma;
         MySqlConnection con;
         public string userID;
-        int tip; //0-studenti, 1-profi, 2-admini, 4-cursuri
+        int tip; //0-studenti, 1-profi, 2-admini, 4-cursuri, 5-grupuri
         public AdminShowForm()
         {
             InitializeComponent();
@@ -73,6 +73,16 @@ namespace Pro1
                     sda3.Fill(dt3);
                     dataGridView1.DataSource = dt3;
                     break;
+                case 5:
+                    asignCursBtn.Visible = false;
+                    stergeBtn.Visible = false;
+                    adaugaBtn.Text = "Adauga Grup";
+                    string sqlQueryGrupuri = "select grup_id, curs.denumire, nume from grup join curs using (curs_id) order by curs.denumire asc";
+                    MySqlDataAdapter sda5 = new MySqlDataAdapter(sqlQueryGrupuri, con);
+                    DataTable dt5 = new DataTable();
+                    sda5.Fill(dt5);
+                    dataGridView1.DataSource = dt5;
+                    break;
             }
         }
 
@@ -91,10 +101,17 @@ namespace Pro1
                 adauga.Show();
             }
             else
+                if (tip == 4)
+                {
+                    AdaugaCursForm adaugaCurs = new AdaugaCursForm(con, this);
+                    this.Hide();
+                    adaugaCurs.Show();
+                }
+            else
             {
-                AdaugaCursForm adaugaCurs = new AdaugaCursForm(con, this);
+                AdaugaGrupForm adaugaGrup = new AdaugaGrupForm(con, this);
                 this.Hide();
-                adaugaCurs.Show();
+                adaugaGrup.Show();
             }
         }
 
@@ -141,6 +158,7 @@ namespace Pro1
 
         private void asignCursBtn_Click(object sender, EventArgs e)
         {
+            con.Close();
             con.Open();
 
             int index = dataGridView1.CurrentCell.RowIndex;
