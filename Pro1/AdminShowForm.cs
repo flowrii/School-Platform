@@ -15,6 +15,7 @@ namespace Pro1
         MySqlConnection con;
         public string userID;
         int tip; //0-studenti, 1-profi, 2-admini, 4-cursuri, 5-grupuri
+        int admin; //2-admin 3-superadmin
         public AdminShowForm()
         {
             InitializeComponent();

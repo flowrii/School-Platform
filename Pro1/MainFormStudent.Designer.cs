@@ -36,6 +36,7 @@ namespace Pro1
             this.exitBtn = new System.Windows.Forms.Button();
             this.inscriereBtn = new System.Windows.Forms.Button();
             this.vizualizareNoteBtn = new System.Windows.Forms.Button();
+            this.grupuriBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // detaliiContBtn
@@ -91,7 +92,7 @@ namespace Pro1
             // inscriereBtn
             // 
             this.inscriereBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.inscriereBtn.Location = new System.Drawing.Point(83, 188);
+            this.inscriereBtn.Location = new System.Drawing.Point(80, 170);
             this.inscriereBtn.Name = "inscriereBtn";
             this.inscriereBtn.Size = new System.Drawing.Size(255, 74);
             this.inscriereBtn.TabIndex = 8;
@@ -102,7 +103,7 @@ namespace Pro1
             // vizualizareNoteBtn
             // 
             this.vizualizareNoteBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.vizualizareNoteBtn.Location = new System.Drawing.Point(83, 283);
+            this.vizualizareNoteBtn.Location = new System.Drawing.Point(80, 250);
             this.vizualizareNoteBtn.Name = "vizualizareNoteBtn";
             this.vizualizareNoteBtn.Size = new System.Drawing.Size(255, 74);
             this.vizualizareNoteBtn.TabIndex = 9;
@@ -110,11 +111,23 @@ namespace Pro1
             this.vizualizareNoteBtn.UseVisualStyleBackColor = true;
             this.vizualizareNoteBtn.Click += new System.EventHandler(this.vizualizareNoteBtn_Click);
             // 
+            // grupuriBtn
+            // 
+            this.grupuriBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grupuriBtn.Location = new System.Drawing.Point(80, 330);
+            this.grupuriBtn.Name = "grupuriBtn";
+            this.grupuriBtn.Size = new System.Drawing.Size(255, 74);
+            this.grupuriBtn.TabIndex = 10;
+            this.grupuriBtn.Text = "Grupurile mele";
+            this.grupuriBtn.UseVisualStyleBackColor = true;
+            this.grupuriBtn.Click += new System.EventHandler(this.grupuriBtn_Click);
+            // 
             // MainFormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 531);
+            this.Controls.Add(this.grupuriBtn);
             this.Controls.Add(this.vizualizareNoteBtn);
             this.Controls.Add(this.inscriereBtn);
             this.Controls.Add(this.logOutBtn);
@@ -138,5 +151,6 @@ namespace Pro1
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button inscriereBtn;
         private System.Windows.Forms.Button vizualizareNoteBtn;
+        private System.Windows.Forms.Button grupuriBtn;
     }
 }

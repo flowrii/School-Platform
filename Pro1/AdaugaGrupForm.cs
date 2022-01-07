@@ -15,6 +15,7 @@ namespace Pro1
         AdminShowForm af;
         int[] cursID = new int[100];
         int nrC = 0;
+      
         public AdaugaGrupForm()
         {
             InitializeComponent();
@@ -58,7 +59,7 @@ namespace Pro1
             MessageBox.Show("Grup adaugat cu succes!");
             this.Close();
             af.Close();
-            af = new AdminShowForm(this.af.ma, con, this.af.userID, 2);
+            af = new AdminShowForm(this.af.ma, con, this.af.userID, 5);
             af.Show();
         }
     }

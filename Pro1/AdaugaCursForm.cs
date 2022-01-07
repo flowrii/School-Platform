@@ -41,7 +41,7 @@ namespace Pro1
             MessageBox.Show("Curs adaugat cu succes!");
             this.Close();
             af.Close();
-            af = new AdminShowForm(this.af.ma, con, this.af.userID, 2);
+            af = new AdminShowForm(this.af.ma, con, this.af.userID, 4);
             af.Show();
         }
     }
