@@ -31,7 +31,8 @@ namespace Pro1
         {
             con.Close();
             con.Open();
-            string sqlQueryGrupuri = "select grup.grup_id as ID, grup.curs_id as CURS, grup.nume as NumeGrup from grup join student_grup using (grup_id) join student using (student_id);";
+            string sqlQueryGrupuri = "select grup.grup_id as IDGrup, grup.curs_id as CURS, grup.nume as NumeGrup from grup join student_grup using (grup_id)" +
+                " join student using (student_id) where student.student_id=" + userID + ";";
             MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryGrupuri, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -76,8 +77,8 @@ namespace Pro1
                 string query = "delete from student_grup where student_id=" + userID + " and grup_id=" + grupID + ";";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                query = "delete p from participare_activitate_grup p join activitate_grup a using(activitate_grup_id) " +
-                    "where student_id=" + userID + " and grup_id=" + grupID + ";";
+                query = "delete p from participare_activitate_grup p join student using (student_id) join student_grup using (student_id) " +
+                    "where student_grup.student_id=" + userID + " and student_grup.grup_id=" + grupID + " and participare_activitate_grup.student_id = "+userID+";";
                 cmd = new MySqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Ati parasit grupul!");

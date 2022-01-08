@@ -53,6 +53,7 @@ namespace Pro1
             this.programBtn.TabIndex = 1;
             this.programBtn.Text = "Program";
             this.programBtn.UseVisualStyleBackColor = true;
+            this.programBtn.Click += new System.EventHandler(this.programBtn_Click);
             // 
             // mesajeBtn
             // 

@@ -39,7 +39,13 @@ namespace Pro1
         {
             string mesaj;
             if (mesajTxtBox.Text.Length > 0)
+            {
                 mesaj = mesajTxtBox.Text;
+                string callProc = "call inserare_mesaj(" + userID + ", " + grupID + ", '" + mesaj + "');";
+                MySqlCommand cmd = new MySqlCommand(callProc, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Mesaj trimis :*");
+            }
         }
     }
 }

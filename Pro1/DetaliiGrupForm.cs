@@ -48,5 +48,12 @@ namespace Pro1
             this.Hide();
             mesaje.Show();
         }
+
+        private void programBtn_Click(object sender, EventArgs e)
+        {
+            ActivitatiGRUPForm activitati = new ActivitatiGRUPForm(userID, grupID, con, this);
+            this.Hide();
+            activitati.Show();
+        }
     }
 }
