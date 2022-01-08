@@ -74,17 +74,24 @@ namespace Pro1
             if (dataGridView1.SelectedCells.Count == 1)
             {
                 grupID = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                string query1 = "update activitate_grup join participare_activitate_grup using(activitate_grup_id)" +
+                    "set nr_participanti=nr_participanti-1 where participare_activitate_grup.student_id=" + userID + " and activitate_grup.grup_id=" + grupID + ";";
+                MySqlCommand com = new MySqlCommand(query1, con);
+                com.ExecuteNonQuery();
+
                 string query = "delete from student_grup where student_id=" + userID + " and grup_id=" + grupID + ";";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                query = "delete p from participare_activitate_grup p join student using (student_id) join student_grup using (student_id) " +
-                    "where student_grup.student_id=" + userID + " and student_grup.grup_id=" + grupID + " and participare_activitate_grup.student_id = "+userID+";";
+                query = "delete p from participare_activitate_grup p join activitate_grup a using (activitate_grup_id) " +
+                    "where p.student_id=" + userID + " and a.grup_id=" + grupID+";";
                 cmd = new MySqlCommand(query, con);
                 cmd.ExecuteNonQuery();
+             
+
                 MessageBox.Show("Ati parasit grupul!");
             }
             else
-                MessageBox.Show("Selectati un singur Grup!");
+                MessageBox.Show("Selectati un singur grup!");
         }
     }
 }

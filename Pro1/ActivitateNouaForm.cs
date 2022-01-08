@@ -77,7 +77,7 @@ namespace Pro1
                 }
 
                 string insertProf = "insert into activitate_grup(descriere, nr_min_participanti, data_activitate, ora, timp_expirare, grup_id, nr_participanti, prof_id) " +
-                    "values ('" + descriere + "', " + nrMin + ", '" + dataT.ToString("yyyy-MM-dd") + "', " + ora*60 + ", " + timpInscriere + ", " + grupID + ", 0, " + profDeInserat + ");";
+                    "values ('" + descriere + "', " + nrMin + ", '" + dataT.ToString("yyyy-MM-dd") + "', " + ora + ", " + timpInscriere*60 + ", " + grupID + ", 0, " + profDeInserat + ");";
                 MySqlCommand cmd1 = new MySqlCommand(insertProf, con);
                 cmd1.ExecuteNonQuery();
 
