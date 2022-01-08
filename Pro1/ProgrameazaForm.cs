@@ -84,6 +84,11 @@ namespace Pro1
                 nrMax = nrStudTextBox.Text.ToString();
                 dataIncepere = incepereDateTimePicker1.Value;
                 dataFinalizare = finalizareDateTimePicker1.Value;
+                if (dataIncepere.CompareTo(dataFinalizare) > 0)
+                {
+                    MessageBox.Show("Data inceperii trebuie sa fie inainte de data finalizarii");
+                    return;
+                }
                 int pondere_locala = 0;
                 MySqlCommand cmd1 = new MySqlCommand("select pondere_locala(" + userID + ",'" + curs + "');", con);
                 pondere_locala = (int)cmd1.ExecuteScalar();

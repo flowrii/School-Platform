@@ -95,7 +95,7 @@ namespace Pro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 523);
+            this.ClientSize = new System.Drawing.Size(1069, 575);
             this.Controls.Add(this.asignCursBtn);
             this.Controls.Add(this.stergeBtn);
             this.Controls.Add(this.inapoiBtn);

@@ -44,29 +44,21 @@ namespace Pro1
             string descriere;
             int nrMin = 0, ora, timpInscriere;
             DateTime dataT;
-            //try
-            //{
+            try
+            {
                 descriere = descriereTxtBox.Text;
                 nrMin = Int32.Parse(nrMinTxtBox.Text);
                 dataT = dateTimePicker1.Value;
+
+                if(dataT.CompareTo(DateTime.Today)<0)
+                {
+                    MessageBox.Show("Data aleasa este invalida!");
+                    return;
+                }
+
                 ora = Int32.Parse(oraComboBox.SelectedItem.ToString());
                 timpInscriere = Int32.Parse(timpExpirareTxtBox.Text);
                 
-                if (checkBox1.Checked)
-                {
-                    string query = "select prof_id as id, utilizator.nume as Nume, utilizator.prenume as Prenume from curs " +
-                        "join profesor_curs using(curs_id) join profesor using(prof_id) join utilizator on user_id=profesor.prof_id " +
-                        "where curs.curs_id=(select curs_id from grup where grup_id=" + grupID + ");";
-                    MySqlCommand cmd = new MySqlCommand(query, con);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    
-                    while(reader.Read())
-                    {
-                        profiID[ctP] = reader.GetInt32("id");
-                        profiComboBox.Items.Add(reader.GetString("Nume") + " " + reader.GetString("Prenume"));
-                    }
-                    reader.Close();
-                }
                 if(profiComboBox.Text.Equals("Selectati un profesor"))
                 {
                     profDeInserat = "null";
@@ -87,17 +79,29 @@ namespace Pro1
 
                 MessageBox.Show("Activitate adaugata cu succes!");
 
-            //}
-            //catch (Exception exception)
-            //{
-              //  MessageBox.Show("Completati toate campurile inainte de a finaliza");
-            //}
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Completati toate campurile inainte de a finaliza");
+            }
         }
 
         private void ActivitateNouaForm_Load(object sender, EventArgs e)
         {
             profiComboBox.Visible = false;
             profiComboBox.Text = "Selectati un profesor";
+            string query = "select prof_id as id, utilizator.nume as Nume, utilizator.prenume as Prenume from curs " +
+                        "join profesor_curs using(curs_id) join profesor using(prof_id) join utilizator on user_id=profesor.prof_id " +
+                        "where curs.curs_id=(select curs_id from grup where grup_id=" + grupID + ");";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                profiID[ctP] = reader.GetInt32("id");
+                profiComboBox.Items.Add(reader.GetString("Nume") + " " + reader.GetString("Prenume"));
+            }
+            reader.Close();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -105,7 +109,6 @@ namespace Pro1
             if (checkBox1.Checked)
             {
                 profiComboBox.Visible = true;
-
             }
             else
             {
