@@ -77,6 +77,7 @@ namespace Pro1
             this.leaveBtn.TabIndex = 3;
             this.leaveBtn.Text = "Paraseste Grup";
             this.leaveBtn.UseVisualStyleBackColor = true;
+            this.leaveBtn.Click += new System.EventHandler(this.leaveBtn_Click);
             // 
             // grupNouBtn
             // 

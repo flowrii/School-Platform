@@ -47,11 +47,11 @@ namespace Pro1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(113, 58);
+            this.label1.Location = new System.Drawing.Point(123, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 21);
+            this.label1.Size = new System.Drawing.Size(134, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Selectati o materie: ";
+            this.label1.Text = "Selectati un grup: ";
             // 
             // joinBtn
             // 
@@ -61,6 +61,7 @@ namespace Pro1
             this.joinBtn.TabIndex = 2;
             this.joinBtn.Text = "Alatura-te";
             this.joinBtn.UseVisualStyleBackColor = true;
+            this.joinBtn.Click += new System.EventHandler(this.joinBtn_Click);
             // 
             // inapoiBtn
             // 

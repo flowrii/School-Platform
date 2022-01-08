@@ -65,5 +65,25 @@ namespace Pro1
             this.Hide();
             grupNou.Show();
         }
+
+        private void leaveBtn_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            string grupID;
+            if (dataGridView1.SelectedCells.Count == 1)
+            {
+                grupID = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                string query = "delete from student_grup where student_id=" + userID + " and grup_id=" + grupID + ";";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                query = "delete p from participare_activitate_grup p join activitate_grup a using(activitate_grup_id) " +
+                    "where student_id=" + userID + " and grup_id=" + grupID + ";";
+                cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ati parasit grupul!");
+            }
+            else
+                MessageBox.Show("Selectati un singur Grup!");
+        }
     }
 }
