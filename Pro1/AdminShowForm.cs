@@ -103,11 +103,11 @@ namespace Pro1
             }
             else
                 if (tip == 4)
-                {
-                    AdaugaCursForm adaugaCurs = new AdaugaCursForm(con, this);
-                    this.Hide();
-                    adaugaCurs.Show();
-                }
+            {
+                AdaugaCursForm adaugaCurs = new AdaugaCursForm(con, this);
+                this.Hide();
+                adaugaCurs.Show();
+            }
             else
             {
                 AdaugaGrupForm adaugaGrup = new AdaugaGrupForm(con, this);
@@ -176,6 +176,29 @@ namespace Pro1
 
             else
                 MessageBox.Show("Selectati un singur Nume");
+        }
+
+        private void cautaBtn_Click(object sender, EventArgs e)
+        {
+            string searchValue = textBox1.Text;
+
+            dataGridView1.ClearSelection();
+            try
+            {
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                        if (row.Cells[i].Value.ToString().Equals(searchValue))
+                        {
+                            row.Cells[i].Selected = true;
+                        }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

@@ -34,6 +34,9 @@ namespace Pro1
             this.inapoiBtn = new System.Windows.Forms.Button();
             this.stergeBtn = new System.Windows.Forms.Button();
             this.asignCursBtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cautaBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +94,42 @@ namespace Pro1
             this.asignCursBtn.UseVisualStyleBackColor = true;
             this.asignCursBtn.Click += new System.EventHandler(this.asignCursBtn_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(786, 534);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(142, 29);
+            this.textBox1.TabIndex = 5;
+            // 
+            // cautaBtn
+            // 
+            this.cautaBtn.Location = new System.Drawing.Point(967, 534);
+            this.cautaBtn.Name = "cautaBtn";
+            this.cautaBtn.Size = new System.Drawing.Size(90, 29);
+            this.cautaBtn.TabIndex = 6;
+            this.cautaBtn.Text = "Cauta";
+            this.cautaBtn.UseVisualStyleBackColor = true;
+            this.cautaBtn.Click += new System.EventHandler(this.cautaBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(635, 536);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 21);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Cautare avansata:";
+            // 
             // AdminShowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 575);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cautaBtn);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.asignCursBtn);
             this.Controls.Add(this.stergeBtn);
             this.Controls.Add(this.inapoiBtn);
@@ -106,6 +140,7 @@ namespace Pro1
             this.Load += new System.EventHandler(this.AdminShowForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,5 +151,8 @@ namespace Pro1
         private System.Windows.Forms.Button inapoiBtn;
         private System.Windows.Forms.Button stergeBtn;
         private System.Windows.Forms.Button asignCursBtn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button cautaBtn;
+        private System.Windows.Forms.Label label1;
     }
 }
