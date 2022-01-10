@@ -45,10 +45,13 @@ namespace Pro1
 
         private void SugestiiActivitatiForm_Load(object sender, EventArgs e)
         {
+            con.Close();
+            con.Open();
+
             if (backForm is MainFormStudent)
             {
                 invitaBtn.Visible = false;
-                string activitati = "SELECT case when tip = 0 then \"Curs\" when tip = 1 then \"Seminar\" when tip = 2 then \"Laborator\" " +
+                string activitati = "SELECT activitate_id, case when tip = 0 then \"Curs\" when tip = 1 then \"Seminar\" when tip = 2 then \"Laborator\" " +
                 " when tip = 3 then \"Colocviu\" else \"Examen\" end as Tip ,denumire as Materie,ziua as Zi,ora as Ora from activitate join profesor_curs " +
                 " using (prof_curs_id) join curs using (curs_id) join student_curs using (curs_id) where student_curs.student_id =" + userID +
                 " and ora not in ( select ora from activitate join participare using (activitate_id) where student_id =" + userID + ")" +
@@ -57,6 +60,7 @@ namespace Pro1
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView1.DataSource = dt;
+                dataGridView1.Columns[0].Visible = false;
             }
             else if (backForm is MembriiShowForm)
             {
@@ -82,6 +86,17 @@ namespace Pro1
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Invitatia a fost trimisa!");
+        }
+
+        private void inscriereBtn_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            string idActivitate = dataGridView1.Rows[index].Cells[0].Value.ToString();
+
+            string act = "insert into participare (student_id, activitate_id, nota) values (" + userID + ", " + idActivitate + ", 0);";
+            MySqlCommand cmd = new MySqlCommand(act, con);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Inscrierea a fost realizata!");
         }
     }
 }
