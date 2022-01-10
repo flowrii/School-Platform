@@ -37,6 +37,14 @@ namespace Pro1
             this.backForm = student;
         }
 
+        public MesajeForm(string userID, MySqlConnection con, MainFormProfesor profesor)
+        {
+            InitializeComponent();
+            this.userID = userID;
+            this.con = con;
+            this.backForm = profesor;
+        }
+
         private void inapoiBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -55,10 +63,10 @@ namespace Pro1
                 sda.Fill(dt);
                 dataGridView1.DataSource = dt;
             }
-            else if(backForm is MainFormStudent)
+            else if(backForm is MainFormStudent || backForm is MainFormProfesor)
             {
                 button1.Visible = false;
-                string sqlQueryNotificari = "select continut, descriere_activitate, data from notificare where student_id = " + userID + ";";
+                string sqlQueryNotificari = "select continut as Mesaj, descriere_activitate as NumeActivitate, data as Data from notificare where user_id = " + userID + ";";
                 MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryNotificari, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);

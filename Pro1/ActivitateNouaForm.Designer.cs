@@ -43,6 +43,7 @@ namespace Pro1
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.inapoiBtn = new System.Windows.Forms.Button();
             this.adaugaBtn = new System.Windows.Forms.Button();
+            this.labelSugestie = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -187,11 +188,22 @@ namespace Pro1
             this.adaugaBtn.UseVisualStyleBackColor = true;
             this.adaugaBtn.Click += new System.EventHandler(this.adaugaBtn_Click);
             // 
+            // labelSugestie
+            // 
+            this.labelSugestie.AutoSize = true;
+            this.labelSugestie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSugestie.Location = new System.Drawing.Point(97, 45);
+            this.labelSugestie.Name = "labelSugestie";
+            this.labelSugestie.Size = new System.Drawing.Size(236, 21);
+            this.labelSugestie.TabIndex = 16;
+            this.labelSugestie.Text = "Va sugeram sa creati o activitate ";
+            // 
             // ActivitateNouaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 420);
+            this.Controls.Add(this.labelSugestie);
             this.Controls.Add(this.adaugaBtn);
             this.Controls.Add(this.inapoiBtn);
             this.Controls.Add(this.dateTimePicker1);
@@ -230,5 +242,6 @@ namespace Pro1
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button inapoiBtn;
         private System.Windows.Forms.Button adaugaBtn;
+        private System.Windows.Forms.Label labelSugestie;
     }
 }

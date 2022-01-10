@@ -74,5 +74,12 @@ namespace Pro1
             this.Hide();
             catalog.Show();
         }
+
+        private void notificariBtn_Click(object sender, EventArgs e)
+        {
+            MesajeForm notificari = new MesajeForm(userID, con, this);
+            this.Hide();
+            notificari.Show();
+        }
     }
 }

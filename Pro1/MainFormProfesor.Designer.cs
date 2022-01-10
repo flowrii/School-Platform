@@ -37,6 +37,7 @@ namespace Pro1
             this.logOutBtn = new System.Windows.Forms.Button();
             this.programeazaActBtn = new System.Windows.Forms.Button();
             this.catalogBtn = new System.Windows.Forms.Button();
+            this.notificariBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contProfBtn
@@ -82,7 +83,7 @@ namespace Pro1
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(313, 475);
+            this.exitBtn.Location = new System.Drawing.Point(313, 543);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(106, 43);
             this.exitBtn.TabIndex = 4;
@@ -92,7 +93,7 @@ namespace Pro1
             // 
             // logOutBtn
             // 
-            this.logOutBtn.Location = new System.Drawing.Point(12, 475);
+            this.logOutBtn.Location = new System.Drawing.Point(12, 543);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(106, 43);
             this.logOutBtn.TabIndex = 5;
@@ -122,11 +123,23 @@ namespace Pro1
             this.catalogBtn.UseVisualStyleBackColor = true;
             this.catalogBtn.Click += new System.EventHandler(this.catalogBtn_Click);
             // 
+            // notificariBtn
+            // 
+            this.notificariBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.notificariBtn.Location = new System.Drawing.Point(84, 425);
+            this.notificariBtn.Name = "notificariBtn";
+            this.notificariBtn.Size = new System.Drawing.Size(257, 77);
+            this.notificariBtn.TabIndex = 8;
+            this.notificariBtn.Text = "Notificari";
+            this.notificariBtn.UseVisualStyleBackColor = true;
+            this.notificariBtn.Click += new System.EventHandler(this.notificariBtn_Click);
+            // 
             // MainFormProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 530);
+            this.ClientSize = new System.Drawing.Size(431, 602);
+            this.Controls.Add(this.notificariBtn);
             this.Controls.Add(this.catalogBtn);
             this.Controls.Add(this.programeazaActBtn);
             this.Controls.Add(this.logOutBtn);
@@ -153,5 +166,6 @@ namespace Pro1
         private System.Windows.Forms.Button logOutBtn;
         private System.Windows.Forms.Button programeazaActBtn;
         private System.Windows.Forms.Button catalogBtn;
+        private System.Windows.Forms.Button notificariBtn;
     }
 }
