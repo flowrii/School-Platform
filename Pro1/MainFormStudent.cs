@@ -83,5 +83,12 @@ namespace Pro1
             this.Hide();
             program.Show();
         }
+
+        private void sugestiiBtn_Click(object sender, EventArgs e)
+        {
+            SugestiiForm sugestii = new SugestiiForm(userID, con, this);
+            this.Hide();
+            sugestii.Show();
+        }
     }
 }

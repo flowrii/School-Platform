@@ -101,9 +101,12 @@ namespace Pro1
                 label2.Visible = false;
                 notaTextBox.Visible = false;
 
-                string query = "select participare.nota as Nota, activitate.tip as Activitate, curs.denumire as CURS from participare join activitate " +
+                string query = "select case when tip = 0 then \"Curs\" when tip = 1 then \"Seminar\" " +
+                "when tip = 2 then \"Laborator\" when tip = 3 then \"Colocviu\" else \"Examen\" end as Activitate, curs.denumire as CURS," +
+                "participare.nota as Nota from participare join activitate " +
                 "using (activitate_id) join profesor_curs using(prof_curs_id) join curs using (curs_id)" +
-                "where student_id = " + userID + " union select student_curs.nota as Nota, \"NOTA FINALA\" as Activitate, curs.denumire as CURS from curs join student_curs using (curs_id)" +
+                "where student_id = " + userID + " union select \"NOTA FINALA\" as Activitate, curs.denumire as " +
+                "CURS, student_curs.nota as Nota from curs join student_curs using (curs_id)" +
                 "where student_id = " + userID + " order by CURS;";
 
                 MySqlDataAdapter sda = new MySqlDataAdapter(query, con);

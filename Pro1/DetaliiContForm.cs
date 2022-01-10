@@ -61,6 +61,7 @@ namespace Pro1
 
         private void DetaliiContForm_Load(object sender, EventArgs e)
         {
+            con.Close();
             con.Open();
             string selectQuery = "Select nume, prenume, adresa, nr_tel, email, nr_contract from utilizator where user_id=" + userID + ";";
             MySqlDataAdapter sda = new MySqlDataAdapter(selectQuery, con);

@@ -43,5 +43,12 @@ namespace Pro1
             this.Close();
             dgf.Show();
         }
+
+        private void invitaBtn_Click(object sender, EventArgs e)
+        {
+            SugestiiForm sugestii = new SugestiiForm(grupID, con, this);
+            this.Hide();
+            sugestii.Show();
+        }
     }
 }

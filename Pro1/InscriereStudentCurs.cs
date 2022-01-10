@@ -93,6 +93,7 @@ namespace Pro1
 
         private void InscriereStudentCurs_Load(object sender, EventArgs e)
         {
+            con.Close();
             con.Open();
 
             label3.Visible = false;

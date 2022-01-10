@@ -31,18 +31,19 @@ namespace Pro1
         {
             con.Close();
             con.Open();
-            string sqlQueryGrupuri = "select grup.grup_id as IDGrup, grup.curs_id as CURS, grup.nume as NumeGrup from grup join student_grup using (grup_id)" +
+            string sqlQueryGrupuri = "select grup.grup_id as IDGrup, curs.denumire as CURS, grup.nume as NumeGrup from curs join grup using(curs_id) join student_grup using (grup_id)" +
                 " join student using (student_id) where student.student_id=" + userID + ";";
             MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryGrupuri, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void inapoiBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            ms.Show();
+           this.Close();
+           ms.Show();
         }
 
         private void detaliiBtn_Click(object sender, EventArgs e)
