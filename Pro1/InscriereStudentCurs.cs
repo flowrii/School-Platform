@@ -156,7 +156,7 @@ namespace Pro1
                 cursLabel.Visible = true;
                 cursActComboBox.Visible = true;
 
-                string cursuri = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=0 and prof_id=" + prof_id + ";";
+                string cursuri = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=0 and prof_id=" + prof_id + " and profesor_curs.curs_id="+ CURS[cursuriComboBox.SelectedIndex]+"; ";
                
                 int k1 = 0;
 
@@ -174,7 +174,7 @@ namespace Pro1
                 seminarLabel.Visible = true;
                 seminarActComboBox.Visible = true;
 
-                string seminarii = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=1 and prof_id=" + prof_id + ";";
+                string seminarii = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=1 and prof_id=" + prof_id + " and profesor_curs.curs_id=" + CURS[cursuriComboBox.SelectedIndex] + "; ";
 
                 int k2 = 0;
 
@@ -192,8 +192,8 @@ namespace Pro1
                 laboratorLabel.Visible = true;
                 labActComboBox.Visible = true;
 
-                string laboratoare = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=2 and prof_id=" + prof_id + ";";
-               
+                string laboratoare = "select activitate_id, ziua, ora from activitate join profesor_curs using (prof_curs_id) where tip=2 and prof_id=" + prof_id + " and profesor_curs.curs_id=" + CURS[cursuriComboBox.SelectedIndex] + "; ";
+
                 int k3 = 0;
 
                 cmd = new MySqlCommand(laboratoare, con);

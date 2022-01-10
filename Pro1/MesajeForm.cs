@@ -14,7 +14,7 @@ namespace Pro1
         string userID;
         string grupID;
         MySqlConnection con;
-        DetaliiGrupForm dgf;
+        Form backForm;
         public MesajeForm()
         {
             InitializeComponent();
@@ -26,24 +26,44 @@ namespace Pro1
             this.userID = userID;
             this.grupID = grupID;
             this.con = con;
-            this.dgf = dgf;
+            this.backForm = dgf;
+        }
+
+        public MesajeForm(string userID, MySqlConnection con, MainFormStudent student)
+        {
+            InitializeComponent();
+            this.userID = userID;
+            this.con = con;
+            this.backForm = student;
         }
 
         private void inapoiBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            dgf.Show();
+            backForm.Show();
         }
 
         private void MesajeForm_Load(object sender, EventArgs e)
         {
-            string sqlQueryMesaje = "select utilizator.nume as Nume, utilizator.prenume as Prenume, mesaj.continut as Mesaj " +
-                "from utilizator join student on user_id=student_id join student_grup using (student_id) join mesaj using (student_grup_id) " +
-                "where student_grup.grup_id=" + grupID + ";";
-            MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryMesaje, con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dataGridView1.DataSource = dt;
+            if (backForm is DetaliiContForm)
+            {
+                string sqlQueryMesaje = "select utilizator.nume as Nume, utilizator.prenume as Prenume, mesaj.continut as Mesaj " +
+                  "from utilizator join student on user_id=student_id join student_grup using (student_id) join mesaj using (student_grup_id) " +
+                  "where student_grup.grup_id=" + grupID + ";";
+                MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryMesaje, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            else if(backForm is MainFormStudent)
+            {
+                button1.Visible = false;
+                string sqlQueryNotificari = "select continut, descriere_activitate, data from notificare where student_id = " + userID + ";";
+                MySqlDataAdapter sda = new MySqlDataAdapter(sqlQueryNotificari, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

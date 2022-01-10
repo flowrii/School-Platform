@@ -69,5 +69,19 @@ namespace Pro1
             this.Hide();
             grupuri.Show();
         }
+
+        private void notificariBtn_Click(object sender, EventArgs e)
+        {
+            MesajeForm notificari = new MesajeForm(userID, con, this);
+            this.Hide();
+            notificari.Show();
+        }
+
+        private void programBtn_Click(object sender, EventArgs e)
+        {
+            ProgramProfForm program = new ProgramProfForm(userID, con, this);
+            this.Hide();
+            program.Show();
+        }
     }
 }

@@ -37,6 +37,8 @@ namespace Pro1
             this.inscriereBtn = new System.Windows.Forms.Button();
             this.vizualizareNoteBtn = new System.Windows.Forms.Button();
             this.grupuriBtn = new System.Windows.Forms.Button();
+            this.notificariBtn = new System.Windows.Forms.Button();
+            this.programBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // detaliiContBtn
@@ -71,7 +73,7 @@ namespace Pro1
             // 
             // logOutBtn
             // 
-            this.logOutBtn.Location = new System.Drawing.Point(6, 476);
+            this.logOutBtn.Location = new System.Drawing.Point(12, 606);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(106, 43);
             this.logOutBtn.TabIndex = 7;
@@ -81,7 +83,7 @@ namespace Pro1
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(307, 476);
+            this.exitBtn.Location = new System.Drawing.Point(303, 606);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(106, 43);
             this.exitBtn.TabIndex = 6;
@@ -122,11 +124,35 @@ namespace Pro1
             this.grupuriBtn.UseVisualStyleBackColor = true;
             this.grupuriBtn.Click += new System.EventHandler(this.grupuriBtn_Click);
             // 
+            // notificariBtn
+            // 
+            this.notificariBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.notificariBtn.Location = new System.Drawing.Point(80, 410);
+            this.notificariBtn.Name = "notificariBtn";
+            this.notificariBtn.Size = new System.Drawing.Size(255, 74);
+            this.notificariBtn.TabIndex = 11;
+            this.notificariBtn.Text = "Notificari";
+            this.notificariBtn.UseVisualStyleBackColor = true;
+            this.notificariBtn.Click += new System.EventHandler(this.notificariBtn_Click);
+            // 
+            // programBtn
+            // 
+            this.programBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.programBtn.Location = new System.Drawing.Point(80, 490);
+            this.programBtn.Name = "programBtn";
+            this.programBtn.Size = new System.Drawing.Size(255, 74);
+            this.programBtn.TabIndex = 12;
+            this.programBtn.Text = "Program";
+            this.programBtn.UseVisualStyleBackColor = true;
+            this.programBtn.Click += new System.EventHandler(this.programBtn_Click);
+            // 
             // MainFormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 531);
+            this.ClientSize = new System.Drawing.Size(421, 657);
+            this.Controls.Add(this.programBtn);
+            this.Controls.Add(this.notificariBtn);
             this.Controls.Add(this.grupuriBtn);
             this.Controls.Add(this.vizualizareNoteBtn);
             this.Controls.Add(this.inscriereBtn);
@@ -152,5 +178,7 @@ namespace Pro1
         private System.Windows.Forms.Button inscriereBtn;
         private System.Windows.Forms.Button vizualizareNoteBtn;
         private System.Windows.Forms.Button grupuriBtn;
+        private System.Windows.Forms.Button notificariBtn;
+        private System.Windows.Forms.Button programBtn;
     }
 }
