@@ -88,6 +88,9 @@ namespace Pro1
 
         private void ActivitateNouaForm_Load(object sender, EventArgs e)
         {
+            con.Close();
+            con.Open();
+
             profiComboBox.Visible = false;
 
             string sugestie = "call sugerare_fereastra("+grupID+");";
@@ -123,7 +126,7 @@ namespace Pro1
 
             while (reader.Read())
             {
-                profiID[ctP] = reader.GetInt32("id");
+                profiID[ctP++] = reader.GetInt32("id");
                 profiComboBox.Items.Add(reader.GetString("Nume") + " " + reader.GetString("Prenume"));
             }
             reader.Close();

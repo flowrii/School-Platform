@@ -37,6 +37,8 @@ namespace Pro1
 
         private void ActivitatiGRUPForm_Load(object sender, EventArgs e)
         {
+            con.Close();
+            con.Open();
             string activitatiGrup = "select activitate_grup_id as ID, activitate_grup.descriere as Nume, data_activitate as DataActivitate, ora as OraActivitate, nr_participanti as Participanti," +
                 " concat(case when prof_id is NULL then \"-\" else nume end, \" \",case when prof_id is NULL then \"\" else prenume end) as Profesor from activitate_grup left join utilizator " +
                 "on activitate_grup.prof_id=utilizator.user_id where activitate_grup.grup_id="+grupID+ " and (activitate_grup.activitate_grup_id not in (select activitate_grup_id " +

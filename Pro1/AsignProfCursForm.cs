@@ -29,6 +29,8 @@ namespace Pro1
 
         private void AsignProfCursForm_Load(object sender, EventArgs e)
         {
+            con.Close();
+            con.Open();
             MySqlCommand cmd = new MySqlCommand("select denumire from curs where denumire not in(select denumire from curs join profesor_curs on curs.curs_id=profesor_curs.curs_id where prof_id=" + idProf + ");", con);
             MySqlDataReader reader = cmd.ExecuteReader();
             //MySqlDataAdapter sda = new MySqlDataAdapter("select denumire from curs join profesor_curs on curs.curs_id=profesor_curs.curs_id where prof_id=" + idProf + ";", con);
@@ -57,7 +59,6 @@ namespace Pro1
             MySqlCommand cmd = new MySqlCommand("insert into profesor_curs (curs_id, prof_id, nr_stud) values (" + idCurs + ", " + idProf + ", 0);", con);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Profesor atribuit cu succes!");
-            con.Close();
         }
 
         private void inapoiBtn_Click(object sender, EventArgs e)

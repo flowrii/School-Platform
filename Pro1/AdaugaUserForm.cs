@@ -70,7 +70,7 @@ namespace Pro1
                     var1 = nrMinOreTxtBox.Text;
                     var2 = nrMaxOreTxtBox.Text;
                     break;
-                case 2:
+                case 0:
                     var1 = nrOreTxtBox.Text;
                     var2 = anTxtBox.Text;
                     break;
