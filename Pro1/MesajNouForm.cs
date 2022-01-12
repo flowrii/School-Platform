@@ -44,7 +44,7 @@ namespace Pro1
                 string callProc = "call inserare_mesaj(" + userID + ", " + grupID + ", '" + mesaj + "');";
                 MySqlCommand cmd = new MySqlCommand(callProc, con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Mesaj trimis :*");
+                MessageBox.Show("Mesaj trimis!");
             }
         }
     }

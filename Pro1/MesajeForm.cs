@@ -53,7 +53,7 @@ namespace Pro1
 
         private void MesajeForm_Load(object sender, EventArgs e)
         {
-            if (backForm is DetaliiContForm)
+            if (backForm is DetaliiGrupForm)
             {
                 string sqlQueryMesaje = "select utilizator.nume as Nume, utilizator.prenume as Prenume, mesaj.continut as Mesaj " +
                   "from utilizator join student on user_id=student_id join student_grup using (student_id) join mesaj using (student_grup_id) " +
